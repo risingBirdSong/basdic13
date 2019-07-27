@@ -1,14 +1,29 @@
 "use strict";
-function establishGrid(howManyRows, howManyColumns) {
-    var isThisLikeA_DOM = [];
-    for (var i = 1; i <= howManyRows; i++) {
-        $(".main").append("<div class=\"row\"></div>");
-        isThisLikeA_DOM.push("<div class=\"row\"></div>");
+var htmlItem;
+(function (htmlItem) {
+    htmlItem["p"] = "p";
+    htmlItem["h3"] = "h3";
+})(htmlItem || (htmlItem = {}));
+function appending(numbers, delayInMS, tag) {
+    var main = $(".main");
+    var arrStart = $(".arr_start");
+    var arrEnd = $(".arr_end");
+    var insideArr = $(".inside_of_array");
+    arrStart.append("<p class='left_bracket child'>let outPutArr = [</p>");
+    var i = 0;
+    function lognumbers(input) {
+        console.log(i);
+        var myInterval = setInterval(function () {
+            if (i >= input) {
+                console.log("i should clear");
+                clearInterval(myInterval);
+            }
+            var appendMe = "<" + tag + ">" + i + ", </" + tag + ">";
+            insideArr.append(appendMe);
+            i++;
+        }, delayInMS);
     }
-    for (var j = 1; j <= howManyColumns; j++) {
-        $(".row").append("<div class='column'><p>" + j + "</p></div>");
-    }
+    lognumbers(numbers);
+    arrEnd.append("<p class='right_bracket child'>]</p>");
 }
-establishGrid(100, 100);
-function placeDivOverTheTop(x, y) {
-}
+appending(50, 300, htmlItem.p);
