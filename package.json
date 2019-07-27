@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/risingBirdSong/basic13_playAround.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/risingBirdSong/basic13_playAround/issues"
+  },
+  "homepage": "https://github.com/risingBirdSong/basic13_playAround#readme",
+  "dependencies": {
+    "@types/jquery": "^3.3.30"
+  }
+}
