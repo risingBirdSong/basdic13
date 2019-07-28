@@ -1,14 +1,14 @@
 .main {
-  background-color: beige;
+  background-color: lightskyblue;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  height: 700px;
-  width: 700px;
+  height: 50%;
+  width: 50%;
+  margin : 0 auto;
 }
-
 
 .bookend {
   color: blue;
@@ -16,10 +16,7 @@
   /* margin: auto; */
 }
 
-
-
 .part_of_arr {
-  color: blueviolet;
   font-size: 40px;
   margin: auto;
 }
@@ -27,6 +24,32 @@
 .inside_of_array {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
+.inside_of_array p {
+  color: blueviolet;
+}
+
+#current {
+  color: red;
+}
+
+.interaction {
+  display: flex;
+  align-items: center;
+  background: cornflowerblue;
+  width: 50%;
+  margin : 0 auto;
+  position: relative;
+  height: 5em;
+}
+
+button {
+  vertical-align: top;
+  margin: auto auto;
+  background-color: rgb(31, 48, 199);
+  padding : 20px;
+  color: palevioletred;
+
+}

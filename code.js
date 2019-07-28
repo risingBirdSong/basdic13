@@ -4,7 +4,9 @@ var htmlItem;
     htmlItem["p"] = "p";
     htmlItem["h3"] = "h3";
 })(htmlItem || (htmlItem = {}));
-function appending(numbers, delayInMS, tag) {
+var isPaused = false;
+function appending(numbers, delayInMS, tag, isPaused) {
+    if (isPaused === void 0) { isPaused = false; }
     var main = $(".main");
     var arrStart = $(".arr_start");
     var arrEnd = $(".arr_end");
@@ -13,17 +15,32 @@ function appending(numbers, delayInMS, tag) {
     var i = 0;
     function lognumbers(input) {
         console.log(i);
+        if (isPaused === true) {
+            console.log('i should be paused');
+            delayInMS = 100000000;
+        }
         var myInterval = setInterval(function () {
             if (i >= input) {
                 console.log("i should clear");
                 clearInterval(myInterval);
             }
-            var appendMe = "<" + tag + ">" + i + ", </" + tag + ">";
+            var appendMe = "<" + tag + " id=\"current\">" + i + ", </" + tag + ">";
             insideArr.append(appendMe);
+            setTimeout(function () {
+                $("#current").removeAttr("id");
+            }, delayInMS);
             i++;
         }, delayInMS);
     }
     lognumbers(numbers);
-    arrEnd.append("<p class='right_bracket child'>]</p>");
+    arrEnd.append("<p class='right_bracket child'>];</p>");
 }
-appending(50, 300, htmlItem.p);
+function startTheSequence() {
+    //@ts-ignore
+    appending(30, 300, htmlItem.p);
+}
+function pauseTheSequence() {
+    isPaused = true;
+}
+$(".begin").click(startTheSequence);
+$(".end").click(pauseTheSequence);

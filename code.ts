@@ -3,7 +3,9 @@ enum htmlItem {
   h3 = "h3"
 }
 
-function appending(numbers: number, delayInMS: number, tag: htmlItem) {
+let isPaused = false;
+
+function appending(numbers: number, delayInMS: number, tag: htmlItem, isPaused = false) {
   let main = $(".main");
   let arrStart = $(".arr_start");
   let arrEnd = $(".arr_end");
@@ -14,20 +16,39 @@ function appending(numbers: number, delayInMS: number, tag: htmlItem) {
   let i = 0;
   function lognumbers(input: number) {
     console.log(i);
+    if (isPaused === true) {
+      console.log('i should be paused');
+      delayInMS = 100000000;
+    }
     let myInterval = setInterval(function() {
       if (i >= input) {
         console.log("i should clear");
         clearInterval(myInterval);
       }
-      let appendMe = `<${tag}>${i}, </${tag}>`;
+      let appendMe = `<${tag} id="current">${i}, </${tag}>`;
       insideArr.append(appendMe);
+
+      setTimeout(function() {
+        $("#current").removeAttr("id");
+      }, delayInMS);
       i++;
     }, delayInMS);
   }
 
   lognumbers(numbers);
 
-  arrEnd.append("<p class='right_bracket child'>]</p>");
+  arrEnd.append("<p class='right_bracket child'>];</p>");
 }
 
-appending(50, 300, htmlItem.p);
+function startTheSequence() {
+  //@ts-ignore
+  appending(30, 300, htmlItem.p);
+}
+
+function pauseTheSequence () {
+  isPaused = true;
+}
+
+$(".begin").click(startTheSequence);
+
+$(".end").click(pauseTheSequence);
