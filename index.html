@@ -13,23 +13,71 @@
     ></script>
   </head>
   <body>
+    <div class="intro">
+      <p>
+        a simple demonstration of a function pushing numbers into an array;
+      </p>
+    </div>
 
     <div class="interaction">
       <button class="begin">begin</button>
-      <button class="end">end</button>
+      <button class="pause">pause</button>
+      <button class="resume">resume</button>
+      <br>
+      <div class="forms">
+        <form action="#" class="howManyNumbers">
+          how many numbers?
+          <input type="text" />
+          <input type="submit" />
+        </form>
+        <form action="#" class="howFast">
+          how fast in milliseconds?
+          <input type="text" />
+          <input type="submit" />
+        </form>
+      </div>
     </div>
 
+    <div class="operating_function">
+      <p class="indent_level_0">
+        let outPutArray = [];
+      </p>
 
+      <p class="indent_level_1">
+        function pushToArray (number) {
+      </p>
+
+      <p class="indent_level_2">
+        for (let i = 0; i <= number; i ++) {
+      </p>
+
+      <p class="indent_level_3">
+        outPutArray.push(number);
+      </p>
+
+      <p class="indent_level_1">
+        }
+      </p>
+
+      <p class="indent_level_1">
+        return outPutArray;
+      </p>
+
+      <p class="indent_level_0">
+        }
+      </p>
+
+      <p class="indent_level_0">
+        pushToArray (<span class="argument"></span>);
+      </p>
+    </div>
 
     <div class="main">
-
-
       <div class="arr_start bookend part_of_arr"></div>
 
       <div class="inside_of_array part_of_arr"></div>
 
       <div class="arr_end bookend part_of_arr"></div>
-
     </div>
 
     <script src="code.js"></script>
